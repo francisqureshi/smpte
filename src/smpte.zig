@@ -1,9 +1,10 @@
 const std = @import("std");
 
-pub const Rational = extern struct {
+pub const Rational = struct {
     num: usize,
     den: usize,
 };
+
 pub const SMPTEError = error{
     InvalidTimecodeFormat,
     FrameRateMismatch,
