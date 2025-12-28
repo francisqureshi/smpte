@@ -1,20 +1,6 @@
-# SMPTE Timecode Arithmetic Class for Python 2.7/3.x
+# SMPTE Timecode Arithmetic for Zig 0.16.0+
 
-## Usage Examples
-
-```
-s = SMPTE()
-
-# Convert 24 timecode string to frame count (24 is set by default)
-tcString = '01:00:00:00'
-print(s.getframes(tcString))
-
-# Convert frame count to 29.97 drop frame timecode string
-s.fps = 29.97
-s.df = True
-frameCount = 1800
-print(s.gettc(frameCount))
-```
+Zig port of https://github.com/IgorRidanovic/smpte
 
 ## Frame Rates and Drop Frame
 
