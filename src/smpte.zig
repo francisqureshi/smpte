@@ -1,9 +1,9 @@
 const std = @import("std");
 
-pub const Rational = struct {
-    num: usize,
-    den: usize,
-};
+// pub const Rational = struct {
+//     num: usize,
+//     den: usize,
+// };
 
 pub const SMPTEError = error{
     InvalidTimecodeFormat,
@@ -24,7 +24,7 @@ pub const SMPTE = struct {
     }
 
     /// Initialize from Rational frame rate
-    pub fn initFromRational(rational: Rational, drop_frame: bool) SMPTE {
+    pub fn initFromRational(rational: anytype, drop_frame: bool) SMPTE {
         const fps = @as(f64, @floatFromInt(rational.num)) / @as(f64, @floatFromInt(rational.den));
         return .{
             .fps = fps,
