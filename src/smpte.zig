@@ -135,6 +135,13 @@ pub const SMPTE = struct {
         return try self.getTC(end_frames, buffer);
     }
 
+    /// Remove frames from a timecode
+    pub fn removeFrames(self: SMPTE, timecode: []const u8, frames: i64, buffer: []u8) ![]const u8 {
+        const start_frames = try self.getFrames(timecode);
+        const end_frames = start_frames - frames;
+        return try self.getTC(end_frames, buffer);
+    }
+
     /// Calculate the difference between two timecodes in frames
     pub fn frameDifference(self: SMPTE, start_tc: []const u8, end_tc: []const u8) !i64 {
         const start_frames = try self.getFrames(start_tc);
